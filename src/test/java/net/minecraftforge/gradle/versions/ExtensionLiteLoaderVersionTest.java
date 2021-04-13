@@ -21,7 +21,6 @@ package net.minecraftforge.gradle.versions;
 
 import static org.junit.Assert.*;
 
-import com.google.common.collect.ImmutableMap;
 import net.minecraftforge.gradle.user.liteloader.LiteloaderExtension;
 import net.minecraftforge.gradle.user.liteloader.LiteloaderPlugin;
 import org.gradle.api.InvalidUserDataException;
@@ -40,7 +39,7 @@ public class ExtensionLiteLoaderVersionTest
     {
         this.testProject = ProjectBuilder.builder().build();
         assertNotNull(this.testProject);
-        this.testProject.apply(ImmutableMap.of("plugin", LiteloaderPlugin.class));
+        this.testProject.getPluginManager().apply(LiteloaderPlugin.class);
 
         this.ext = this.testProject.getExtensions().findByType(LiteloaderExtension.class);   // unlike getByType(), does not throw exception
         assertNotNull(this.ext);

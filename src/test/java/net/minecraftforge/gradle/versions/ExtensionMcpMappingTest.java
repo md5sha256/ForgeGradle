@@ -42,7 +42,7 @@ public class ExtensionMcpMappingTest
     {
         this.testProject = ProjectBuilder.builder().build();
         assertNotNull(this.testProject);
-        this.testProject.apply(ImmutableMap.of("plugin", ClientTweaker.class));
+        this.testProject.getPluginManager().apply(ClientTweaker.class);
 
         this.ext = this.testProject.getExtensions().findByType(TweakerExtension.class);   // unlike getByType(), does not throw exception
         assertNotNull(this.ext);
